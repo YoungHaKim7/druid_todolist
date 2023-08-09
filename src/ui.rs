@@ -1,5 +1,7 @@
 use druid::{widget::Label, Widget};
 
-pub fn ui_builder() -> impl Widget<u64> {
+use crate::data::TodoState;
+
+pub fn ui_builder() -> impl Widget<TodoState> {
     Label::new("Hello world")
 }
