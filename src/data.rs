@@ -3,7 +3,7 @@ use im::Vector;
 
 #[derive(Clone, Data, Lens, Default)]
 pub struct TodoState {
-    pub todo: Vector<TodoItem>,
+    pub todos: Vector<TodoItem>,
     pub new_text: String,
 }
 
