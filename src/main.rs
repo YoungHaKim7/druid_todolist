@@ -1,3 +1,4 @@
+use data::TodoState;
 use druid::{AppLauncher, WindowDesc};
 use ui::ui_builder;
 
@@ -9,6 +10,6 @@ fn main() {
         .title("My Todo App")
         .window_size((400., 400.));
     AppLauncher::with_window(main_window)
-        .launch(0)
+        .launch(TodoState::default())
         .expect("failed app")
 }
