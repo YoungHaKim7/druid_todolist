@@ -1,6 +1,6 @@
 use druid::{
-    widget::{Button, Checkbox, Flex, Label, List, TextBox},
-    Env, EventCtx, Menu, MenuItem, Point, Widget, WidgetExt,
+    widget::{Button, Checkbox, Flex, Label, List, Padding, TextBox, ZStack},
+    Env, EventCtx, Menu, MenuItem, Point, UnitPoint, Widget, WidgetExt,
 };
 
 use crate::data::{TodoItem, TodoState};
@@ -23,8 +23,9 @@ pub fn ui_builder() -> impl Widget<TodoState> {
 
     let todos = List::new(|| {
         Flex::row()
-            .with_child(Checkbox::new("").lens(TodoItem::checked))
             .with_child(Label::new(|data: &TodoItem, _: &Env| data.text.clone()))
+            .with_default_spacer()
+            .with_child(Checkbox::new("").lens(TodoItem::checked))
             .with_flex_spacer(0.1)
             .with_child(Button::new("...").on_click(
                 |ctx: &mut EventCtx, data: &mut TodoItem, _env| {
@@ -44,5 +45,9 @@ pub fn ui_builder() -> impl Widget<TodoState> {
     .scroll()
     .vertical();
 
-    Flex::column().with_child(header).with_flex_child(todos, 1.)
+    let clear_complete = Button::new("Clear Complted")
+        .on_click(|_, data: &mut TodoState, _| data.todos.retain(|item| !item.checked));
+
+    ZStack::new(Flex::column().with_child(header).with_flex_child(todos, 1.))
+        .with_aligned_child(Padding::new(5., clear_complete), UnitPoint::BOTTOM_RIGHT)
 }
