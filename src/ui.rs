@@ -26,7 +26,8 @@ pub fn ui_builder() -> impl Widget<TodoState> {
             .with_child(Checkbox::new("").lens(TodoItem::checked))
             .with_child(Label::new(|data: &TodoItem, _: &Env| data.text.clone()))
     })
-    .lens(TodoState::todos);
+    .lens(TodoState::todos)
+    .scroll();
 
-    Flex::column().with_child(header).with_child(todos)
+    Flex::column().with_child(header).with_flex_child(todos, 1.)
 }
