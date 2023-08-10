@@ -7,7 +7,7 @@ pub struct TodoState {
     pub new_text: String,
 }
 
-#[derive(Clone, Data, Lens)]
+#[derive(Clone, Data, Lens, Eq, PartialEq)]
 pub struct TodoItem {
     pub checked: bool,
     pub text: String,
