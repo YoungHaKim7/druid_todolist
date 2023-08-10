@@ -3,6 +3,7 @@ use druid::{AppLauncher, WindowDesc};
 use ui::ui_builder;
 
 mod data;
+mod saver;
 mod ui;
 
 fn main() {
