@@ -25,6 +25,7 @@ pub fn ui_builder() -> impl Widget<TodoState> {
         Flex::row()
             .with_child(Checkbox::new("").lens(TodoItem::checked))
             .with_child(Label::new(|data: &TodoItem, _: &Env| data.text.clone()))
+            .with_flex_spacer(0.1)
             .with_child(Button::new("...").on_click(
                 |ctx: &mut EventCtx, data: &mut TodoItem, _env| {
                     let data_clone = data.clone();
@@ -40,7 +41,8 @@ pub fn ui_builder() -> impl Widget<TodoState> {
             ))
     })
     .lens(TodoState::todos)
-    .scroll();
+    .scroll()
+    .vertical();
 
     Flex::column().with_child(header).with_flex_child(todos, 1.)
 }
