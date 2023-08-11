@@ -1,5 +1,8 @@
 # druid_todolist
 
+# Druid Font 기타 스타일 설정
+
+https://docs.rs/druid/latest/druid/struct.Env.html
 
 # Druid Tutorial: Making a Todo app in Rust GUI(이거 보고 만듬)
 
