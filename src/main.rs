@@ -1,5 +1,7 @@
 use data::TodoState;
 use druid::{AppLauncher, WindowDesc};
+use im::Vector;
+use saver::read_stored;
 use ui::ui_builder;
 
 mod data;
@@ -11,7 +13,14 @@ fn main() {
         .title("My Todo App")
         .window_size((400., 400.))
         .resizable(true);
+
+    let stored = read_stored();
+    let default_state = TodoState {
+        todos: Vector::from(stored.tasks),
+        ..Default::default()
+    };
+
     AppLauncher::with_window(main_window)
-        .launch(TodoState::default())
+        .launch(default_state)
         .expect("failed app")
 }
