@@ -57,3 +57,42 @@ impl Widget<TodoState> for Saver {
 }
 
 ```
+
+# Enter Pattern
+
+```rust
+struct Enter;
+
+impl<W: Widget<TodoState>> Controller<TodoState, W> for Enter {
+    fn event(
+        &mut self,
+        child: &mut W,
+        ctx: &mut druid::EventCtx,
+        event: &druid::Event,
+        data: &mut TodoState,
+        env: &druid::Env,
+    ) {
+    }
+    fn lifecycle(
+        &mut self,
+        child: &mut W,
+        ctx: &mut druid::LifeCycleCtx,
+        event: &druid::LifeCycle,
+        data: &TodoState,
+        env: &druid::Env,
+    ) {
+        child.lifecycle(ctx, event, data, env)
+    }
+    fn update(
+        &mut self,
+        child: &mut W,
+        ctx: &mut druid::UpdateCtx,
+        old_data: &TodoState,
+        data: &TodoState,
+        env: &druid::Env,
+    ) {
+        child.update(ctx, old_data, data, env)
+    }
+}
+
+```

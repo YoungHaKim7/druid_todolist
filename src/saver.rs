@@ -16,7 +16,6 @@ impl Widget<TodoState> for Saver {
         data: &mut TodoState,
         env: &druid::Env,
     ) {
-        todo!()
     }
     fn lifecycle(
         &mut self,
@@ -25,7 +24,6 @@ impl Widget<TodoState> for Saver {
         data: &TodoState,
         env: &druid::Env,
     ) {
-        todo!()
     }
     fn update(
         &mut self,
@@ -62,9 +60,7 @@ impl Widget<TodoState> for Saver {
             height: 0.,
         }
     }
-    fn paint(&mut self, ctx: &mut druid::PaintCtx, data: &TodoState, env: &druid::Env) {
-        todo!()
-    }
+    fn paint(&mut self, ctx: &mut druid::PaintCtx, data: &TodoState, env: &druid::Env) {}
 }
 
 #[derive(Serialize, Deserialize)]
