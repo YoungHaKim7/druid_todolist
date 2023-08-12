@@ -35,8 +35,8 @@ pub fn ui_builder() -> impl Widget<TodoState> {
         Flex::row()
             .with_child(Label::new(|data: &TodoItem, _: &Env| {
                 if data.checked {
-                    let checkdo = "\u{2705}";
-                    return format!("{:?}{}\n", checkdo, data.text);
+                    let check_done = "\u{2705}";
+                    return format!("{:?}{}\n", check_done, data.text);
                 } else {
                     return data.text.clone();
                 }
@@ -54,7 +54,7 @@ pub fn ui_builder() -> impl Widget<TodoState> {
                                 main_data.todos.remove(location);
                             },
                         ));
-                    ctx.show_context_menu(menu, Point::new(0., 0.))
+                    ctx.show_context_menu(menu, Point::new(1500., 0.))
                 },
             ))
     })
