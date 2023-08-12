@@ -33,7 +33,14 @@ pub fn ui_builder() -> impl Widget<TodoState> {
 
     let todos = List::new(|| {
         Flex::row()
-            .with_child(Label::new(|data: &TodoItem, _: &Env| data.text.clone()))
+            .with_child(Label::new(|data: &TodoItem, _: &Env| {
+                if data.checked {
+                    let checkdo = "\u{2705}";
+                    return format!("{:?}{}\n", checkdo, data.text);
+                } else {
+                    return data.text.clone();
+                }
+            }))
             .with_default_spacer()
             .with_child(Checkbox::new("").lens(TodoItem::checked))
             .with_flex_spacer(0.1)
