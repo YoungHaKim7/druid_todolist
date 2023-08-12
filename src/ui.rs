@@ -36,7 +36,7 @@ pub fn ui_builder() -> impl Widget<TodoState> {
             .with_child(Label::new(|data: &TodoItem, _: &Env| {
                 if data.checked {
                     let check_done = "\u{2705}";
-                    return format!("{:?}{}\n", check_done, data.text);
+                    return format!("{:?}{}", check_done, data.text);
                 } else {
                     return data.text.clone();
                 }
