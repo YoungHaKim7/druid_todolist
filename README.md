@@ -31,6 +31,9 @@ fn main() {
 }
 ```
 
+- 다른 설정들
+  - https://docs.rs/druid/latest/src/text/text.rs.html#95
+  - https://docs.rs/druid/latest/druid/text/enum.Attribute.html
 
 # Druid Tutorial: Making a Todo app in Rust GUI(이거 보고 만듬)
 
