@@ -42,7 +42,7 @@ https://youtu.be/YEa2eq4HEU8
 - Code 원본
   - https://github.com/Techno3d/TodoTutorialDruid.git
 
-# Druid Rutine
+# Druid Routine
 
 ```rust
 use druid::Widget;
