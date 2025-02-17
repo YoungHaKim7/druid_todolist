@@ -133,3 +133,39 @@ impl<W: Widget<TodoState>> Controller<TodoState, W> for Enter {
 }
 
 ```
+
+# json 저장위치
+
+```rs
+    /// Returns the path to the user's cache directory.
+    ///
+    /// |Platform | Value                               | Example                      |
+    /// | ------- | ----------------------------------- | ---------------------------- |
+    /// | Linux   | `$XDG_CACHE_HOME` or `$HOME`/.cache | /home/alice/.cache           |
+    /// | macOS   | `$HOME`/Library/Caches              | /Users/Alice/Library/Caches  |
+    /// | Windows | `{FOLDERID_LocalAppData}`           | C:\Users\Alice\AppData\Local |
+    pub fn cache_dir(&self) -> &Path {
+        self.cache_dir.as_path()
+    }
+    /// Returns the path to the user's config directory.
+    ///
+    /// |Platform | Value                                 | Example                                  |
+    /// | ------- | ------------------------------------- | ---------------------------------------- |
+    /// | Linux   | `$XDG_CONFIG_HOME` or `$HOME`/.config | /home/alice/.config                      |
+    /// | macOS   | `$HOME`/Library/Application Support   | /Users/Alice/Library/Application Support |
+    /// | Windows | `{FOLDERID_RoamingAppData}`           | C:\Users\Alice\AppData\Roaming           |
+    pub fn config_dir(&self) -> &Path {
+        self.config_dir.as_path()
+    }
+    /// Returns the path to the user's local config directory.
+    ///
+    /// |Platform | Value                                 | Example                                  |
+    /// | ------- | ------------------------------------- | ---------------------------------------- |
+    /// | Linux   | `$XDG_CONFIG_HOME` or `$HOME`/.config | /home/alice/.config                      |
+    /// | macOS   | `$HOME`/Library/Application Support   | /Users/Alice/Library/Application Support |
+    /// | Windows | `{FOLDERID_LocalAppData}`           | C:\Users\Alice\AppData\Local               |
+    pub fn config_local_dir(&self) -> &Path {
+        self.config_local_dir.as_path()
+    }
+
+```
